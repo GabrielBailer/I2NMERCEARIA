@@ -48,16 +48,11 @@ Se preferir reaproveitar uma imagem para vários modelos, altere a URL em `illus
 
 ## Publicar no Vercel
 
-1. Envie este projeto para um repositório GitHub e acesse [vercel.com](https://vercel.com/).
-2. No painel do Vercel, escolha **Add New → Project** e importe o repositório.
-3. Em **Root Directory**, escolha `apps/store-shell` e confirme essa pasta.
-4. Confira as configurações de build:
-   - **Framework Preset:** Angular (ou Other, se o Vercel não detectar Angular).
-   - **Install Command:** `npm install`.
-   - **Build Command:** `npm run build`.
-   - **Output Directory:** `dist/store-shell/browser`.
-5. Mantenha o arquivo `apps/store-shell/vercel.json`: ele direciona as rotas internas do Angular para `index.html`, permitindo atualizar páginas de produto sem erro 404.
-6. Clique em **Deploy**. Ao terminar, abra o endereço fornecido pelo Vercel e teste o catálogo e uma página de produto.
-7. Para atualizações futuras, envie as alterações para o repositório conectado. O Vercel fará um novo deploy automaticamente. Um domínio próprio pode ser adicionado em **Settings → Domains**.
+O `vercel.json` na raiz configura os dois frontends como serviços no mesmo projeto:
 
-Não é necessário configurar backend, proxy, segredo ou variável de ambiente para esse catálogo.
+- `store-shell` (Angular) é publicado em `/`, incluindo as rotas `/products/:productId`.
+- `product-details` (Vite/React) é publicado em `/product-details/`.
+
+Para publicar, envie o projeto para um repositório GitHub, importe-o no Vercel e mantenha **Root Directory** na raiz deste repositório. O Vercel usa o `vercel.json` para construir e rotear os dois serviços. Depois do deploy, teste o catálogo, uma rota de produto e `/product-details/`.
+
+As aplicações não chamam uma à outra e não precisam de bindings nem de variáveis de ambiente. O arquivo `apps/store-shell/vercel.json` continua disponível para quem optar por publicar somente o Angular como projeto Vercel separado.

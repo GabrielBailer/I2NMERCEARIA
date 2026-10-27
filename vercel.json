@@ -1,0 +1,53 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "store-shell": {
+      "root": "apps/store-shell",
+      "framework": "angular",
+      "installCommand": "npm install",
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist/store-shell/browser",
+      "rewrites": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    "product-details": {
+      "root": "apps/product-details",
+      "framework": "vite",
+      "installCommand": "npm install",
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist",
+      "rewrites": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/product-details",
+      "destination": {
+        "service": "product-details",
+        "path": "/"
+      }
+    },
+    {
+      "source": "/product-details/(.*)",
+      "destination": {
+        "service": "product-details",
+        "path": "/$1"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "store-shell"
+      }
+    }
+  ]
+}
