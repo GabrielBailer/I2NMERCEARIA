@@ -1,0 +1,56 @@
+I2N MARCENARIA — DOCUMENTACAO DO PROJETO
+
+Resumo
+-------
+Foi criada uma loja virtual de demonstração para a I2N Marcenaria, com
+Angular como aplicação principal e um microfrontend React para os detalhes
+dos produtos. A identidade visual prioriza preto e branco, com laranja como
+cor de destaque.
+
+O que foi implementado
+----------------------
+- Página inicial com apresentação da loja, benefícios e catálogo.
+- Pesquisa e filtros de produtos por categoria.
+- Página de detalhes carregada pelo microfrontend React.
+- Integração preparada com a API existente do back-end.
+- Composição Docker preparada para incluir back-end, MongoDB e aplicações
+  front-end, sem alterar os fontes do back-end.
+- Dados locais opcionais para demonstração, identificados claramente como
+  dados que não vieram do servidor.
+
+Integração e limitações
+----------------------
+A loja consulta GET /product para o catálogo e GET /product/{id} para os
+detalhes. O modelo disponível inclui id, prodName, prodType, quantity e
+price. As categorias são PORTA, MESA e SOBMEDIDA.
+
+O contrato atual não fornece descrição ou imagem específica por produto.
+Também não oferece carrinho nem endpoint de compra. Por isso, imagens e
+descrições demonstrativas são identificadas como ilustrativas, e o botão
+de compra apenas informa que nenhuma compra foi realizada.
+
+Como executar
+-------------
+Para usar Docker Compose, configure primeiro as variáveis necessárias no
+arquivo projeto-e-comerce/.env, conforme as instruções do README.md. Não
+compartilhe nem armazene segredos neste documento. Na raiz do projeto,
+execute:
+
+  docker compose --env-file .\projeto-e-comerce\.env up --build
+
+Acesse http://localhost:4200. O microfrontend pode ser aberto isoladamente
+em http://localhost:5174.
+
+Para executar os front-ends diretamente no computador, com o back-end
+disponível em http://localhost:8080, consulte a seção "Executar localmente"
+do README.md.
+
+Validação registrada
+--------------------
+Os builds do Angular e React, o lint React e os testes existentes do
+front-end passaram. O teste do back-end também passou com configurações
+temporárias fornecidas apenas ao processo de teste. A API real e a
+inicialização da pilha Docker ainda precisam ser verificadas com o Docker
+Desktop ativo e o arquivo .env devidamente configurado.
+
+Para detalhes de arquitetura, comandos e contratos, consulte README.md.

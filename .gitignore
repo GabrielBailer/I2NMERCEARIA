@@ -1,0 +1,51 @@
+
+# Node modules
+**/node_modules/
+node_modules/
+
+# Build outputs
+**/dist/
+dist/
+**/build/
+out-tsc/
+tmp/
+
+# Angular
+**/.angular/
+.angular/
+.ng/
+.angular-cli.json
+
+# Coverage and tests
+**/coverage/
+e2e/test-output/
+
+# Vite
+**/.vite/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Lock files
+# Mantidos no Git para garantir instalações reproduzíveis
+# package-lock.json
+# yarn.lock
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
