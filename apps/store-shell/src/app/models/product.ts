@@ -1,4 +1,4 @@
-export const PRODUCT_CATEGORIES = ['PORTA', 'MESA'] as const;
+export const PRODUCT_CATEGORIES = ['PORTA', 'MESAS_E_CADEIRAS', 'CRISTALEIRAS', 'CASA_E_JARDIM'] as const;
 
 export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];
 
@@ -20,5 +20,7 @@ export interface Product {
 
 export const CATEGORY_LABELS: Record<ProductCategory, string> = {
   PORTA: 'Portas',
-  MESA: 'Mesas',
+  MESAS_E_CADEIRAS: 'Mesas e Cadeiras',
+  CRISTALEIRAS: 'Cristaleiras',
+  CASA_E_JARDIM: 'Casa e Jardim',
 };

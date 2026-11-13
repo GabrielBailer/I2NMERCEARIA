@@ -9,7 +9,7 @@ describe('filterProducts', () => {
   });
 
   it('combines category and name filters', () => {
-    expect(filterProducts(PRODUCTS, 'jantar', 'MESA').map((product) => product.id))
+    expect(filterProducts(PRODUCTS, 'jantar', 'MESAS_E_CADEIRAS').map((product) => product.id))
       .toEqual(['mesa-de-jantar']);
     expect(filterProducts(PRODUCTS, 'jantar', 'PORTA')).toEqual([]);
   });

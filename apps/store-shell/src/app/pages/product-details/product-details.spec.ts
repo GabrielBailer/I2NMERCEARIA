@@ -24,7 +24,7 @@ describe('ProductDetailsPage', () => {
     const content = fixture.nativeElement.textContent as string;
 
     expect(imageFrame?.classList.contains('relative')).toBe(true);
-    expect(image.classList.contains('object-cover')).toBe(true);
+    expect(image.classList.contains('object-contain')).toBe(true);
     expect(fixture.nativeElement.querySelector('select')).toBeNull();
     expect(content).toContain('0,80 m × 2,20 m');
     expect(content.replaceAll('\u00a0', ' ')).toContain('R$ 2.200,00');
